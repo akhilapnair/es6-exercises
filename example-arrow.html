@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+ <ul>
+    <li data-time="5:17">Flexbox Videos</li>
+    <li data-time="7:14">Rudux Videos</li>
+    <li data-time="8:16">Flexbox Videos</li>
+    <li data-time="2:07">Rudux Videos</li>
+    <li data-time="9:12">Rudux Videos</li>
+    <li data-time="5:09">Flexbox Videos</li>
+    <li data-time="5:27">Flexbox Videos</li>
+    <li data-time="3:14">Flexbox Videos</li>
+    <li data-time="6:17">Rudux Videos</li>
+    <li data-time="2:37">Flexbox Videos</li>
+    <li data-time="2:15">Flexbox Videos</li>
+    <li data-time="5:17">Flexbox Videos</li>
+    <li data-time="4:13">Rudux Videos</li>
+    <li data-time="5:17">Flexbox Videos</li>
+    <li data-time="5:27">Rudux Videos</li>
+    <li data-time="5:57">Flexbox Videos</li>
+ </ul>
+ <script>
+const item = Array.from(document.querySelectorAll('[data-time]'));
+const filtered = item
+                .filter(items =>items.textContent.includes('Flexbox'))
+                .map(items => items.dataset.time)
+                .map(timecode => {
+                    const part =timecode.split(':').map(parts => parseFloat(parts));
+                    return (part[0] * 60) + part[1];
+                    })
+                .reduce((totalSeconds, iSec) => totalSeconds + iSec, 0)
+                
+console.log(filtered);
+                
+</script>
+</body>
+</html>
