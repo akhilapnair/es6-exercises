@@ -29,7 +29,7 @@ const filtered = item
                     const part =timecode.split(':').map(parts => parseFloat(parts));
                     return (part[0] * 60) + part[1];
                     })
-                .reduce((totalSeconds, iSec) => totalSeconds + iSec, 0)
+                .reduce((totalSeconds, iSec) => totalSeconds + iSec, 0);
                 
 console.log(filtered);
                 
