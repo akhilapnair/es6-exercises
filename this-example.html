@@ -1,0 +1,57 @@
+<html>
+<head>
+	<style>
+		.box{
+			background-color: pink;
+			width: 200px;
+			height: 200px;
+		}
+		
+		.box.small {
+			/*background-color:red;*/
+			width: 300px;
+			height: 300px;
+		}
+
+		.box.large {
+			background-color: yellow;
+			width: 400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class = "box">
+		<h2>
+			Welcome!!!!!
+		</h2>
+	</div>
+</body>
+
+<script>
+	const box = document.querySelector('.box');
+	console.log(box);
+	box.addEventListener('click',function() {
+		
+		// console.log("first: -> ", this);
+
+		let first = 'large';
+		let second = 'small';
+
+		if(this.classList.contains(first)) {
+			
+			[first,second] = [second,first];
+		}
+		 
+
+		this.classList.toggle('first');
+
+		setTimeout(() => {
+			// console.log(this);
+		
+			this.classList.toggle('second');
+		}, 500);
+
+	});
+</script>
+</html>
